@@ -10,6 +10,14 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
+- task: Prisma Cloud IaC Scan@1
+  inputs:
+    Path: '$(System.DefaultWorkingDirectory)'
+    prismaCloudService: 'PrismaCloud IaC Scanner (Fahd Devops)'
+    High: '0'
+    Medium: '0'
+    Low: '0'
+    Operator: 'or'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
